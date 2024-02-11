@@ -7,17 +7,13 @@ function asignarTextoElemento(elemento, texto){
     return;
 }
 
-//let parrafo = document.querySelector('p');
-//parrafo.innerHTML = 'Indica un número del 1 al 10';
-
 function verificarIntento(){
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
     console.log(typeof(numeroDeUsuario));
     console.log(numeroSecreto);
     console.log(numeroDeUsuario);
     console.log(numeroSecreto);
-    console.log(numeroDeUsuario === numeroSecreto);
-    // el === compara el valor y el tipo de dato
+    console.log(numeroDeUsuario === numeroSecreto);//  === compara valor y el tipo
     return;
 }
 
@@ -30,7 +26,7 @@ asignarTextoElemento('p', 'Indica un número del 1 al 10');
 
 
 function encontrarMayor(a, b) {
-    return a > b ? a : b; // Si a es mayor que b, devuelve a. De lo contrario, devuelve b.
+    return a > b ? a : b; // if a>b, return a. else, return b.
   }
   
   let numeroMayor = encontrarMayor(15, 9);
