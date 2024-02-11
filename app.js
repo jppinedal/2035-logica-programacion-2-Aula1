@@ -13,7 +13,7 @@ function verificarIntento(){
     console.log(numeroSecreto);
     console.log(numeroDeUsuario);
     console.log(numeroSecreto);
-    console.log(numeroDeUsuario === numeroSecreto);//  === compara valor y el tipo
+    console.log(numeroDeUsuario === numeroSecreto);//  === compare value and type
     return;
 }
 
