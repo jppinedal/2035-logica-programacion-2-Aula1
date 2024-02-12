@@ -13,7 +13,6 @@ function asignarTextoElemento(elemento, texto){
 function verificarIntento(){
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
     console.log(typeof(numeroDeUsuario));
-    //console.log(numeroDeUsuario === numeroSecreto);//  === compare value and type
     if(numeroDeUsuario === numeroSecreto){
         asignarTextoElemento('p', `¡Acertaste el número secreto en ${intentos} ${(intentos === 1) ? 'vez' : 'veces'}!`);
         document.getElementById('reiniciar').removeAttribute('disabled');
@@ -35,7 +34,6 @@ function generNumeroSecreto(){
     if(listaNumerosSorteados.length === numeroMaximo){
         asignarTextoElemento('p', 'Ya se sortearon todos los números posibles :(');
     } else{
-        // if el numeroGenerado esta en la lista
         if(listaNumerosSorteados.includes(numeroGenerado)){
             return generNumeroSecreto();
         } else{
@@ -57,11 +55,8 @@ function condicionesIniciales(){
 }
 
 function reiniciarJuego(){
-    //limpiar caja
     limpiarCaja();
-    //indicar mensaje de intervalo de números
-    condicionesIniciales();
-    //generar el número aleatorio, deshabilitar el botón de reiniciar, reinicio de intentos
+    condicionesIniciales();//generar el número aleatorio, deshabilitar el botón de reiniciar, reinicio de intentos
     document.querySelector('#reiniciar').setAttribute('disabled', true);
 }
 
