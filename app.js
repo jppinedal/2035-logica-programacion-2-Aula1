@@ -48,7 +48,7 @@ function limpiarCaja(){
 }
 
 function condicionesIniciales(){
-    asignarTextoElemento('h1', 'Juego easy del número secreto');
+    asignarTextoElemento('h1', 'Adivina el número secreto :=)');
     asignarTextoElemento('p', `Ey, escriba pues un número del 1 a ${numeroMaximo}`);
     numeroSecreto = generNumeroSecreto();
     intentos = 1;
