@@ -1,6 +1,8 @@
 let numeroSecreto = 0;
 let intentos = 0;
-console.log(numeroSecreto);
+let listaNumerosSorteados = [];
+let numeroMaximo = 10;
+
 
 function asignarTextoElemento(elemento, texto){
     let elementoHTML = document.querySelector(elemento);
@@ -28,8 +30,19 @@ return;
 }
 
 function generNumeroSecreto(){
-    return  Math.floor(Math.random() * 10) + 1;
-
+    let numeroGenerado =  Math.floor(Math.random() * numeroMaximo) + 1;
+    //Si ya sorteamos todos los numeros
+    if(listaNumerosSorteados.length === numeroMaximo){
+        asignarTextoElemento('p', 'Ya se sortearon todos los números posibles :(');
+    } else{
+        // if el numeroGenerado esta en la lista
+        if(listaNumerosSorteados.includes(numeroGenerado)){
+            return generNumeroSecreto();
+        } else{
+            listaNumerosSorteados.push(numeroGenerado);
+            return numeroGenerado;
+        }
+    }
 }
 
 function limpiarCaja(){
@@ -38,7 +51,7 @@ function limpiarCaja(){
 
 function condicionesIniciales(){
     asignarTextoElemento('h1', 'Juego del número secreto');
-    asignarTextoElemento('p', 'Indica un número del 1 al 10');
+    asignarTextoElemento('p', `Indica un número del 1 al ${numeroMaximo}`);
     numeroSecreto = generNumeroSecreto();
     intentos = 1;
 }
@@ -48,17 +61,11 @@ function reiniciarJuego(){
     limpiarCaja();
     //indicar mensaje de intervalo de números
     condicionesIniciales();
-    //generar el número aleatorio
-    //deshabilitar el botón de reiniciar
-    //reinicio de intentos
+    //generar el número aleatorio, deshabilitar el botón de reiniciar, reinicio de intentos
     document.querySelector('#reiniciar').setAttribute('disabled', true);
-
-    
-
 }
 
 condicionesIniciales();
-
 function encontrarMayor(a, b) {
     return a > b ? a : b; // if a>b, return a. else, return b.
   }
